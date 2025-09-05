@@ -46,7 +46,7 @@
     </BuildEvents>
     <BuildList>
         <FileName>graphics_rasterwait.asm</FileName>
-        <FileName>grahics_raster_interrupt.asm</FileName>
+        <FileName>graphics_raster_interrupt.asm</FileName>
         <FileName>graphics_raster_flashing_border.asm</FileName>
     </BuildList>
     <DetermineBuildOrder>0</DetermineBuildOrder>
@@ -58,7 +58,7 @@
     <!--End of screen designer settings-->
     <SourceFiles>
         <SourceFile>
-            <Name>grahics_raster_interrupt.asm</Name>
+            <Name>graphics_raster_flashing_border.asm</Name>
             <PrgName />
             <FileType>2</FileType>
             <IncludeInBuild>True</IncludeInBuild>
@@ -69,14 +69,14 @@
             <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
-            <Name>graphics_raster_flashing_border.asm</Name>
+            <Name>graphics_raster_interrupt.asm</Name>
             <PrgName />
             <FileType>2</FileType>
             <IncludeInBuild>True</IncludeInBuild>
             <Regions />
             <Breakpoints />
             <Bookmarks />
-            <Topmost>False</Topmost>
+            <Topmost>True</Topmost>
             <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>
