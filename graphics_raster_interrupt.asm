@@ -14,23 +14,31 @@ MAIN
   lda #100
   sta $d012 ;set raster interrupt scanlione to line 100
 loop
-  jmp main  
+  jmp loop ;wait and let the scanlines run  
   
 interrupt_raster_routine_red
-  sei
   ASL $D019          ; Acknowledge the interrupt
   lda #2 ;color red
   sta $d020 ;border color
+  lda #<interrupt_raster_routine_blue
+  sta $0314 ;Vector to IRQ Interrupt Routine low byte normally $EA31)
+  lda #>interrupt_raster_routine_blue
+  sta $0315 ;Vector to IRQ Interrupt Routine low byte normally $EA31)
   lda #200
-loopred
-  cmp $d012 ;compare raster interrupt scanlione to line 200
-  bne loopred
+  sta $d012 ;compare raster interrupt scanlione to line 200
+  JMP $EA31          ; Jump to KERNAL's routine for other tasks
+
+interrupt_raster_routine_blue
+  ASL $D019          ; Acknowledge the interrupt
   lda #14 ;color blue
   sta $d020 ;border color
+  lda #<interrupt_raster_routine_red
+  sta $0314 ;Vector to IRQ Interrupt Routine low byte normally $EA31)
+  lda #>interrupt_raster_routine_red
+  sta $0315 ;Vector to IRQ Interrupt Routine low byte normally $EA31)
   lda #100
-loopblue
-  cmp $d012
-  bne loopblue
-  cli
+  sta $d012 ;compare raster interrupt scanlione to line 200
   JMP $EA31          ; Jump to KERNAL's routine for other tasks
+
+
  
