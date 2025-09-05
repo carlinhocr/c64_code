@@ -14,19 +14,23 @@ MAIN
   lda #100
   sta $d012 ;set raster interrupt scanlione to line 100
 loop
-  jmp loop  
+  jmp main  
   
 interrupt_raster_routine_red
   sei
   ASL $D019          ; Acknowledge the interrupt
   lda #2 ;color red
   sta $d020 ;border color
-loopred
   lda #200
-  cmp $d012 ;set raster interrupt scanlione to line 100
+loopred
+  cmp $d012 ;compare raster interrupt scanlione to line 200
   bne loopred
   lda #14 ;color blue
   sta $d020 ;border color
+  lda #100
+loopblue
+  cmp $d012
+  bne loopblue
   cli
   JMP $EA31          ; Jump to KERNAL's routine for other tasks
  
