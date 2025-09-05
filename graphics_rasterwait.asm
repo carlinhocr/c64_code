@@ -12,8 +12,9 @@ loop
 wait100
   cmp $d012 ;compara with the current raster scanline number register
   bne wait100
-  lda #2 ;color red
+  lda #2 ; color red
   sta $d020 ;border color
+
 
   lda #200
 wait200
@@ -23,4 +24,3 @@ wait200
   sta $d020 ;border color 
   
   jmp loop
-  

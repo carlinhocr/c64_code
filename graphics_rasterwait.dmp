@@ -12,18 +12,18 @@
 00012  1003             WAIT100
 00013  1003  CD 12 D0              CMP $D012 ;COMPARA WITH THE CURRENT RASTER SCANLINE NUMBER REGISTER
 00014  1006  D0 FB                 BNE WAIT100
-00015  1008  A9 02                 LDA #2 ;COLOR RED
+00015  1008  A9 02                 LDA #2 ; COLOR RED
 00016  100A  8D 20 D0              STA $D020 ;BORDER COLOR
 00017  100D             
-00018  100D  A9 C8                 LDA #200
-00019  100F             WAIT200
-00020  100F  CD 12 D0              CMP $D012 ;COMPARA WITH THE CURRENT RASTER SCANLINE NUMBER REGISTER
-00021  1012  D0 FB                 BNE WAIT200
-00022  1014  A9 0E                 LDA #14 ;COLOR LIGHT BLUE AGAIN
-00023  1016  8D 20 D0              STA $D020 ;BORDER COLOR
-00024  1019                        
-00025  1019  4C 01 10              JMP LOOP
-00026  101C                        
+00018  100D             
+00019  100D  A9 C8                 LDA #200
+00020  100F             WAIT200
+00021  100F  CD 12 D0              CMP $D012 ;COMPARA WITH THE CURRENT RASTER SCANLINE NUMBER REGISTER
+00022  1012  D0 FB                 BNE WAIT200
+00023  1014  A9 0E                 LDA #14 ;COLOR LIGHT BLUE AGAIN
+00024  1016  8D 20 D0              STA $D020 ;BORDER COLOR
+00025  1019                        
+00026  1019  4C 01 10              JMP LOOP
 00027  101C             
 
 ******* 4 Label(s) *******
